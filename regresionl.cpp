@@ -24,10 +24,17 @@ void func(int w0,int w1,int x){
 	
 	int main(){
 	srand(time(NULL));
+	int a,b;
+	
 	cout<<"regresionn lineal modificar parametros y hiper parametros"<<endl;
-		for (int i=0;i<6;i++)
+		for (int i=0;i<6;i++){
 		a=rand()%(10-1)+1;
+		 b=rand()%(10-1)+1;
+		 func(a,b);
+		 cout<<"punto";
 		cout<<"("<<a<<","<<b<<")"<<endl;
+		
+		}
 	
 	
 	}
