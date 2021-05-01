@@ -10,12 +10,23 @@ using namespace std;
 //como clacular los los puntos 
 //calculo de la hipotesis 
 
-void func(int w0,int w1,int x){
-
-	cout<<"respuesta: " <<w0+w1*x;
+int hx(int w0,int w1,int x){
+	
+		
+	return w0+w1*x;
+	
 	}
-//calculo de error
 
+
+//calculo de error
+void error(){
+	int err;
+	for(int iter=0;iter<n;iter++){
+	err=(1/2*n)*pow(suma(prediccion-hx),2)
+	
+		}
+
+	}
 
 //calculo de las derivadas
 
