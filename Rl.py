@@ -81,7 +81,7 @@ train(x_ds,y_ds, w, 1000,0.007)
 
 
 
-plt.plot(x_ds, y_ds,'*')
+#plt.plot(x_ds, y_ds,'*')
 plt.plot(x_ds, [ h(i,w) for i in x_ds])
 
 
