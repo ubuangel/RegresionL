@@ -1,8 +1,9 @@
+
 #include<iostream>
 using namespace std;
 //regresion 
 
-cout<<"regresion lineal modificar parametros y hiper parametros"
+
 
 
 //como clacular los los puntos 
@@ -10,7 +11,8 @@ cout<<"regresion lineal modificar parametros y hiper parametros"
 
 void func(int w0,int w1,int x){
 
-	return w0+w1*x;
+	cout<<"respuesta: " <<w0+w1*x;
+	}
 //calculo de error
 
 
@@ -21,8 +23,11 @@ void func(int w0,int w1,int x){
 	
 	int main(){
 	
+	cout<<"regresionn lineal modificar parametros y hiper parametros"<<endl;
 		for (int i=0;i<6;i++)
 	func(1,2,3);
+	
+	
 	}
 //
 
