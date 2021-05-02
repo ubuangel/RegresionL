@@ -1,5 +1,6 @@
 
 #include<iostream>
+#include<bits/stdc++.h>
 #include <ctime>
 #include <math.h>
 using namespace std;
@@ -7,6 +8,13 @@ using namespace std;
 
 
 //como clacular los los puntos 
+
+bool personalizar_sort(double a,double b){
+	double a1=(a-0);
+	double b1=(b-0);
+	return a1<b1;
+	}
+
 
 int main(){
 
@@ -18,6 +26,8 @@ int y[]={1,3,3,2,5};
 //calculo de error
 double w0=0;
 double w1=0;
+double error;
+vector<double>err;
 
 double learning=0.01;
 for (int i =0;i <20;i++){
@@ -26,13 +36,20 @@ for (int i =0;i <20;i++){
 	double p=w0+w1*x[dx];
 	
 //e=p(i)-y(i)
-	double error=p-y[dx];
+	 error=p-y[dx];
 //	actualizando pesos
 	w0=w0-learning*error;
 	w1=w1-learning*error*x[dx];
 
-cout<<" w0: "<<w0<<" w1 "<<w1<<" error"<<error<<endl;
+cout<<" w0= "<<w0<<" w1= "<<w1<<" error"<<error<<endl;
 	}
+	err.push_back(error);
+	
+	cout<<"el menor error "<<endl;
+	sort(err.begin(),err.end(),personalizar_sort);
+	cout<<" w0= "<<w0<<" w1= "<<w1<<" error"<<err[0]<<endl;
+	
+	
 
 }
 
