@@ -7,91 +7,38 @@ using namespace std;
 
 
 //como clacular los los puntos 
-//calculo de la hipotesis 
 
-int hx(int w0,int w1){
-	int f;
-	int tam=6;
-	for (int i=0;i<tam;i++){
-		
-	 f=w0+w1*i;
-	
-	}
-	return f;
-	
-	}
+int main(){
 
+int x[]={1,2,4,3,5};
+int y[]={1,3,3,2,5};
 
+//hipotesis
+//y=w0+w1[dx]
 //calculo de error
-void error(int n,int x[],int w0,int w1,int prediccion[]){
-	int err,suma;
-	
-	for (int iter=0;iter<n;iter++){
-		suma=suma+(prediccion[iter]-hx(w0,w1));
-	}
-	 
-	for(int iter=0;iter<n;iter++){
-	err=(1/2*n)*pow(suma,2);
-	
-		}
+double w0=0;
+double w1=0;
 
+double learning=0.01;
+for (int i =0;i <20;i++){
+	int dx=i%5;
+	//prediccion
+	double p=w0+w1*x[dx];
+	
+//e=p(i)-y(i)
+	double error=p-y[dx];
+//	actualizando pesos
+	w0=w0-learning*error;
+	w1=w1-learning*error*x[dx];
+
+cout<<" w0: "<<w0<<" w1 "<<w1<<" error"<<error<<endl;
 	}
+
+}
 
 //calculo de las derivadas
 
 //(1/n)*sumatoria(yi-hx)(-1) derivada respecto a w0
-//(1/n)*sumatoria(yi-hx)(-x) derivada respecto a w1
-
-void gradiente(int n,int  learning,int epocas,int prediccion[],int w0,int w1){
-
-int i;
-	int teta;
-while(i<epocas){
-	int sumatoria=0;
-	int derivada;
-	for (int t=0;t<6;t++){
-	
-	sumatoria=sumatoria+(prediccion[t]-hx(w0,w1));
-	derivada=(1/n)*sumatoria*(-1);
-	teta=teta+learning*derivada;
-	
-	
-		}
-	i++;	
-	}
-	cout<<teta;
-		}
-
-//calculo de la gradiente 
-
-	
-	int main(){
-	
-	cout<<"regresionn lineal modificar parametros y hiper parametros"<<endl;
-		
-		srand(time(NULL));
-	int a,b,x;
-	int prediccion[6];
-	
-	
-	for (int i=0;i<6;i++){
-		a=rand()%(10-1)+1;
-		 b=rand()%(10-1)+1;
-		 x=rand()%(10-1)+1;
-		 
-		//prediccion[i]= hx(a,b,x);
-		 }
-	for (int i=0;i<6;i++){
-		prediccion[i]=i;
-		//cout<<prediccion[i]<<" ";
-//		
-		}
-		gradiente(2,0.3,6,prediccion,2,3);
-
-	
-	
-	}
-//
 
 
 
