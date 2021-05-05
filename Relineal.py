@@ -39,9 +39,9 @@ plt.plot(x_ds,y_prediccion)#prediccion
 #	return suma/2*len(y)
 	
 #calcular las derivadas
-def grad(y,x,w)
-	gra_w0= sum ([(e[0] -h(e[1],w))*(-1) for e in zip(y,x)])/len(y))
-	gra_w1= sum ([(e[0] -h(e[1],w))*(-e[1]) for e in zip(y,x)])/len(y))
+def grad(y,x,w):
+	gra_w0= sum ([(e[0] -h(e[1],w))*(-1) for e in zip(y,x)])/len(y)
+	gra_w1= sum ([(e[0] -h(e[1],w))*(-e[1]) for e in zip(y,x)])/len(y)
 	
 	
 #creamos un algoritmo de aprendisaje
