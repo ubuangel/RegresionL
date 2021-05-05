@@ -39,14 +39,22 @@ plt.plot(x_ds,y_prediccion)#prediccion
 #	return suma/2*len(y)
 	
 #calcular las derivadas
-def grad(x,y,w)
+def grad(y,x,w)
 	gra_w0= sum ([(e[0] -h(e[1],w))*(-1) for e in zip(y,x)])/len(y))
-	gra_w1= sum ([(e[0] -h(e[1],w))*(-x) for e in zip(y,x)])/len(y))
+	gra_w1= sum ([(e[0] -h(e[1],w))*(-e[1]) for e in zip(y,x)])/len(y))
 	
 	
 #creamos un algoritmo de aprendisaje
-def train(x_ds,y_ds,epochs):
+def train(x_ds,y_ds,w,epochs,alpha):
 	for i in range(epochs):
+		err=(y_ds,x_ds,w)
+		print(err)
+		grad_w0=grad(x_ds,y_ds,w)
+		grad_w1=grad(x_ds,y_ds,w)
+	
+	
+		w[0]=w[0]-alpha*grad
+		w[1]=w[1]-alpha*grad
 	
 
 
