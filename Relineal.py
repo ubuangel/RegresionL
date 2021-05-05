@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-x_ds=[i for i in range (100)]
+x_ds=[i for i in range (20)]
 y_ds=[i+np.random.normal(0,5) for i in x_ds]	
 
 
@@ -11,7 +11,7 @@ def h(x,w):
 	return w[0]+w[1]*x
 	
 w=np.random.rand(2)
-print(w)
+#print(w)
 y_prediccion=[h(i,w) for i in x_ds]
 
 
@@ -30,8 +30,8 @@ def error(y,x,w):
 print(error)
 
 
-plt.plot(x_ds,y_ds,'*')#nube de puntos
-plt.plot(x_ds,y_prediccion)#prediccion
+#plt.plot(x_ds,y_ds,'*')#nube de puntos
+#plt.plot(x_ds,y_prediccion)#prediccion
 #otra forma
 #def error(x,y,w):
 #for i in range(len(y))
@@ -42,19 +42,20 @@ plt.plot(x_ds,y_prediccion)#prediccion
 def grad(y,x,w):
 	gra_w0= sum ([(e[0] -h(e[1],w))*(-1) for e in zip(y,x)])/len(y)
 	gra_w1= sum ([(e[0] -h(e[1],w))*(-e[1]) for e in zip(y,x)])/len(y)
-	
+	return gra_w0,gra_w1
 	
 #creamos un algoritmo de aprendisaje
+
+
 def train(x_ds,y_ds,w,epochs,alpha):
 	for i in range(epochs):
 		err=(y_ds,x_ds,w)
 		print(err)
-		grad_w0=grad(x_ds,y_ds,w)
-		grad_w1=grad(x_ds,y_ds,w)
+		grad_w0=grad(y_ds,x_ds,w)
+		grad_w1=grad(y_ds,x_ds,w)
 	
-	
-		w[0]=w[0]-alpha*grad
-		w[1]=w[1]-alpha*grad
+		w[0]=w[0]-alpha*grad_w0
+		w[1]=w[1]-alpha*grad_w1
 	
 
-
+train(x_ds,y_ds,w,100,0.0001)
