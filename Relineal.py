@@ -3,14 +3,13 @@ import matplotlib.pyplot as plt
 
 
 x_ds=[i for i in range (20)]
-y_ds=[i+np.random.normal(0,5) for i in x_ds]	
+y_ds=[i+np.random.normal(0,2) for i in x_ds]	
 
 def h(x,w):
 	return w[0]+w[1]*x
 	
 
 #print(w)
-
 
 
 #for i in x_ds:
@@ -21,10 +20,10 @@ def h(x,w):
 
 #mse
 #mse
-#manera de lsitas pro compresion
 
+#zip genera una lista de tuplas
 def error(y,x,w):
-	return sum( [ (e[0] - h(e[1],w))**2 for  e in zip(y,x) ])/(2*len(y))
+	return sum( [ (e[0] - h(e[1],w))**2 for  e in zip(y,x) ])/(2*len(y))#manera de listas por compresion
 
 w=np.random.rand(2)
 
@@ -52,14 +51,15 @@ def grad(y,x,w):
 
 
 def train(x_ds,y_ds,w,epochs,alpha):
+	#list_error[] #aculuma errores
 	for i in range(epochs):
-		err=(y_ds,x_ds,w)#eroor tenia la primera vez llamo a mi funcion error (calculo de error
-		print(err)
-		grad_w0=grad(y_ds,x_ds,w)
-		grad_w1=grad(y_ds,x_ds,w)
+		err=(y_ds,x_ds,w)#error tenia la primera vez llamo a mi funcion error (calculo de error
+		print(err)#imprimr para ver si esta disminuyendo en el tiempo
+		grad_w0,grad_w1=grad(y_ds,x_ds,w)
+		#grad_w1=grad(y_ds,x_ds,w) #linea ala que se debia de modificar para solucionar el error(can't multiply sequence by non-int of type 'float')  ,no es lomismo que ponerlo todo en una sola linea mirar arriba
 	
 		w[0]=w[0]-alpha*grad_w0
 		w[1]=w[1]-alpha*grad_w1
 	
 
-train(x_ds,y_ds,w,10,0.001)#aui el error de la linea  can't multiply sequence by non-int of type 'float'
+train(x_ds,y_ds,w,10,0.007)#aqui el error de la linea  can't multiply sequence by non-int of type 'float' minuto34
