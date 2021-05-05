@@ -51,7 +51,8 @@ def grad(y,x,w):
 
 
 def train(x_ds,y_ds,w,epochs,alpha):
-	#list_error[] #aculuma errores ojo la identacion de python esta oculta se elimina con <--
+	#w=
+	#list_error[] #aculuma errores
 	for i in range(epochs):
 		err=error(y_ds,x_ds,w)#error tenia la primera vez llamo a mi funcion error (calculo de error
 		print(err)#imprimr para ver si esta disminuyendo en el tiempo
