@@ -53,7 +53,7 @@ def grad(y,x,w):
 def train(x_ds,y_ds,w,epochs,alpha):
 	#list_error[] #aculuma errores
 	for i in range(epochs):
-		err=(y_ds,x_ds,w)#error tenia la primera vez llamo a mi funcion error (calculo de error
+		err=error(y_ds,x_ds,w)#error tenia la primera vez llamo a mi funcion error (calculo de error
 		print(err)#imprimr para ver si esta disminuyendo en el tiempo
 		grad_w0,grad_w1=grad(y_ds,x_ds,w)
 		#grad_w1=grad(y_ds,x_ds,w) #linea ala que se debia de modificar para solucionar el error(can't multiply sequence by non-int of type 'float')  ,no es lomismo que ponerlo todo en una sola linea mirar arriba
